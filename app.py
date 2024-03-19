@@ -12,11 +12,13 @@ def download():
     video_url = request.form['video_url']
     resolution = request.form['resolution']
 
-    yt = YouTube(video_url)
-    stream = yt.streams.filter(res=resolution).first()
-    stream.download()
-
-    return redirect(url_for('index'))
+    try:
+        yt = YouTube(video_url)
+        stream = yt.streams.filter(res=resolution).first()
+        stream.download()
+        return redirect(url_for('index'))
+    except Exception as e:
+        return render_template('error.html', error=str(e))
 
 if __name__ == '__main__':
     app.run(debug=True)
