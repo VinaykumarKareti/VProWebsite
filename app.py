@@ -5,17 +5,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return "Hi ra vny"
+#     return render_template('index.html')
 
-@app.route('/download', methods=['POST'])
-def download():
-    video_url = request.form['video_url']
-    resolution = request.form['resolution']
+# @app.route('/download', methods=['POST'])
+# def download():
+#     video_url = request.form['video_url']
+#     resolution = request.form['resolution']
 
-    try:
-        yt = YouTube(video_url)
-        stream = yt.streams.filter(res=resolution).first()
-        stream.download()
-        return redirect(url_for('index'))
-    except Exception as e:
-        return render_template('error.html', error=str(e))
+#     try:
+#         yt = YouTube(video_url)
+#         stream = yt.streams.filter(res=resolution).first()
+#         stream.download()
+#         return redirect(url_for('index'))
+#     except Exception as e:
+#         return render_template('error.html', error=str(e))
