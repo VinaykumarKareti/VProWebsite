@@ -38,9 +38,15 @@ def download():
     try:
         yt = YouTube(video_url)
         stream = yt.streams.filter(res=resolution).first()
-        file_path = os.path.join('downloads', stream.default_filename)
-        stream.download(output_path='downloads', filename=stream.default_filename)
-        return send_file(file_path, as_attachment=True)
+        video_filename = f"{yt.title}.{stream.subtype}"
+        stream.download(filename=video_filename)
+        
+        # Construct the path to the downloaded video file
+        video_path = os.path.join(os.getcwd(), video_filename)
+
+        # Send the file as an attachment
+        return send_file(video_path, as_attachment=True)
+
     except Exception as e:
         return render_template('error.html', error=str(e))
 
