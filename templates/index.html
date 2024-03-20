@@ -6,27 +6,89 @@
     <title>VPro - YouTube Downloader</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 50px auto;
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            text-align: center;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+header {
+    background-image: radial-gradient(circle at center, #fcb740,rgb(161, 247, 252), #e0fea8); /* Radial gradient background */
+    padding: 20px;
+    text-align: center;
+    color: #fa54ac; /* White text color */
+    font-style: italic;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    width: 70%;
+    height: 350px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #d5f6fb; /* White container background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555; /* Medium gray text color */
+}
+
+input[type="text"],
+select {
+    width: calc(100% - 22px); /* Subtract padding and border from width */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+button[type="submit"] {
+    width: calc(100% - 22px); /* Subtract padding and border from width */
+    padding: 10px;
+    background-color: #ef85fd; /* Green button color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button[type="submit"]:hover {
+    background-color: #fc44f9; /* Darker green on hover */
+}
+
+footer {
+    background-color: #333; /* Dark footer background */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>VPro - YouTube Downloader</h1>
+    </header><br><br><br>
+
+    <div class="container">
         <form action="/download" method="POST">
-            <label for="video_url">Enter YouTube Video URL:</label><br>
+            <label for="video_url">Enter YouTube Video URL:</label>
             <input type="text" id="video_url" name="video_url" required><br><br>
             <label for="resolution">Select Resolution:</label>
             <select name="resolution" id="resolution">
@@ -40,5 +102,9 @@
             <button type="submit">Download</button>
         </form>
     </div>
+
+    <footer>
+        <p>&copy; 2024 VPro - All rights reserved</p>
+    </footer>
 </body>
 </html>

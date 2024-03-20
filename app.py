@@ -19,6 +19,3 @@ def download():
         return redirect(url_for('index'))
     except Exception as e:
         return render_template('error.html', error=str(e))
-
-if __name__ == '__main__':
-    app.run(debug=True)
